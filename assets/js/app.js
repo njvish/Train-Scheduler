@@ -16,10 +16,9 @@ $(document).ready(function () {
   var database = firebase.database();
 
   var minutesAway = 0;
+  var nextArrival = "";
   var schedule = [];
-  var firstTrainTotalMin = 0;
   var trainTime = 0;
-  var currentTimeTotalMin = 0;
 
   //submit button functionality
   $("#submit-train").on("click", function() {
@@ -54,23 +53,23 @@ $(document).ready(function () {
          "</tr>");
   });
 
-  // First Time (pushed back 1 year to make sure it comes before current time)
-    var firstTimeConverted = moment(firstTrain, "hh:mm").subtract(1, "years");
-    console.log(firstTimeConverted);
-    // Current Time
-    var currentTime = moment();
-    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
-    // Difference between the times
-    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-    console.log("DIFFERENCE IN TIME: " + diffTime);
-    // Time apart (remainder)
-    var tRemainder = diffTime % frequency;
-    console.log(tRemainder);
-    // Minute Until Train
-    var nextArrivalInMin = tFrequency - tRemainder;
-    console.log("MINUTES TILL TRAIN: " + nextArrivalInMin);
-    // Next Train
-    var nextTrain = moment().add(nextArrivalInMin, "minutes");
-    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+  // // First Time (pushed back 1 year to make sure it comes before current time)
+  //   var firstTimeConverted = moment(firstTrain, "hh:mm").subtract(1, "years");
+  //   console.log(firstTimeConverted);
+  //   // Current Time
+  //   var currentTime = moment();
+  //   console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+  //   // Difference between the times
+  //   var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+  //   console.log("DIFFERENCE IN TIME: " + diffTime);
+  //   // Time apart (remainder)
+  //   var tRemainder = diffTime % frequency;
+  //   console.log(tRemainder);
+  //   // Minute Until Train
+  //   var nextArrivalInMin = tFrequency - tRemainder;
+  //   console.log("MINUTES TILL TRAIN: " + nextArrivalInMin);
+  //   // Next Train
+  //   var nextTrain = moment().add(nextArrivalInMin, "minutes");
+  //   console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
 });
