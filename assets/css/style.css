@@ -1,0 +1,8 @@
+.jumbotron {
+	background-image: url(../images/train.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	max-height: 100%;
+	max-width: 100%;
+	
+}
